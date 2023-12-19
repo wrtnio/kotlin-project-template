@@ -3,6 +3,7 @@ package io.wrtn.project.utils
 import io.wrtn.kommons.junit5.random.RandomValue
 import io.wrtn.kommons.junit5.random.RandomizedTest
 import io.wrtn.kommons.logging.KLogging
+import io.wrtn.kommons.logging.debug
 import io.wrtn.project.AbstractCoreTest
 import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldNotBeEmpty
@@ -23,6 +24,7 @@ class JacksonUtilsTest: AbstractCoreTest() {
     fun `json serialize and deserialize`(@RandomValue origin: TestObject) {
         val content = JacksonUtils.writeAsString(origin)
         content.shouldNotBeEmpty()
+        log.debug { "content=$content" }
 
         val actual = JacksonUtils.readString<TestObject>(content)
         actual.shouldNotBeNull() shouldBeEqualTo origin
