@@ -75,6 +75,9 @@ dependencies {
     implementation(Libs.resilience4j_all)
     implementation(Libs.resilience4j_spring_boot3)
     implementation(Libs.resilience4j_cache)
+
+    // Monitoring
+    implementation(Libs.kommons_micrometer)
     implementation(Libs.micrometer_registry_prometheus)
 
     // Problem
