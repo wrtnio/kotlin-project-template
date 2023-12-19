@@ -14,7 +14,7 @@ object Plugins {
         const val shadow = "7.1.2"
         const val kotlinx_benchmark = "0.4.7"
 
-        const val spring_boot = "3.1.5"
+        const val spring_boot = "3.1.6"
         const val docker_compose = "0.16.12"
     }
 

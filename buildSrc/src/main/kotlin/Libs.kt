@@ -100,7 +100,7 @@ object Versions {
     const val elasticsearch = "8.7.0"
 
     const val kafka = "3.5.1"           // https://mvnrepository.com/artifact/org.apache.kafka/kafka
-    const val spring_kafka = "3.0.11"   // https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
+    const val spring_kafka = "3.0.13"   // https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
 
     const val eclipse_collections = "11.1.0"
     const val jctools = "3.3.0"
@@ -381,6 +381,7 @@ object Libs {
     const val marshalling = "org.jboss.marshalling:jboss-marshalling:2.1.2.Final"
     const val marshalling_river = "org.jboss.marshalling:jboss-marshalling-river:2.1.2.Final"
     const val marshalling_serial = "org.jboss.marshalling:jboss-marshalling-serial:2.1.2.Final"
+    const val fury = "org.furyio:fury-core:0.4.1"  // https://mvnrepository.com/artifact/org.furyio/fury-core
 
     // Spring Boot
     const val spring_boot_dependencies = "org.springframework.boot:spring-boot-dependencies:${Versions.spring_boot}"
