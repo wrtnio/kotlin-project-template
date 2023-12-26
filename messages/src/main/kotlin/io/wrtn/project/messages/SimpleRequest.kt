@@ -1,14 +1,12 @@
 package io.wrtn.project.messages
 
-import java.time.Instant
-
 data class SimpleRequest(
-    val id: Long,
-    val source: String,
+    override val id: String?,
+    override val source: String?,
     val body: String,
     val requestType: SimpleRequestType,
-    val requestTime: Instant = Instant.now()
-)
+    override val timestamp: Long? = System.currentTimeMillis()
+): RequestMessage
 
 enum class SimpleRequestType(val caption: String) {
     UNKNOWN("Unknown"),

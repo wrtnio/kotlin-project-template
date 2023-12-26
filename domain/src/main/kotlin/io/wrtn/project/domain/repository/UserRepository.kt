@@ -1,0 +1,17 @@
+package io.wrtn.project.domain.repository
+
+import io.wrtn.project.domain.model.User
+import io.wrtn.project.domain.model.UserState
+import org.springframework.data.mongodb.repository.MongoRepository
+import java.time.Instant
+
+interface UserRepository: MongoRepository<User, String> {
+
+    fun findByEmail(email: String): User?
+
+    fun findByEmailAndUserState(email: String, userState: UserState = UserState.ACTIVE): User?
+
+    fun findByNickname(nickname: String): List<User>
+
+    fun findByCreatedAtAfter(createdAt: Instant = Instant.now()): List<User>
+}

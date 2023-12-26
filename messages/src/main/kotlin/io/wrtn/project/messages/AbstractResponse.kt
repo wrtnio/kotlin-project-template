@@ -8,6 +8,8 @@ abstract class AbstractResponse: Serializable {
 
     val error: ErrorResponse? = null
 
+    val createdAt: Long = System.currentTimeMillis()
+
 
     fun addHeader(name: String, value: String?) {
         headers.add(Header(name, value))

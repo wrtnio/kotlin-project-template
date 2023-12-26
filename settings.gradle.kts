@@ -5,13 +5,11 @@ pluginManagement {
         google()
     }
     plugins {
-        id("org.gradle.toolchains.foojay-resolver-convention") version ("0.4.0")
+        id("org.gradle.toolchains.foojay-resolver-convention") version ("0.7.0")
     }
 }
 
-val PROJECT_NAME = "wrtn-template"
-
-rootProject.name = "$PROJECT_NAME-root"
+rootProject.name = "wrtn-kotlin-template"
 
 include(":app")
 include(":core")

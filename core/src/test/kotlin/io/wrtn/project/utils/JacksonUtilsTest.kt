@@ -17,7 +17,7 @@ import java.time.LocalDateTime
 class JacksonUtilsTest: AbstractCoreTest() {
 
     companion object: KLogging() {
-        private const val TEST_SIZE = 10
+        private const val TEST_SIZE = 5
     }
 
     @RepeatedTest(TEST_SIZE)

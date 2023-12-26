@@ -5,9 +5,14 @@ configurations {
 dependencies {
 
     implementation(Libs.kommons_core)
-    implementation(Libs.kommons_cache)
-    implementation(Libs.kommons_coroutines)
-    implementation(Libs.kommons_json)
-    implementation(Libs.kommons_spring_support)
     testImplementation(Libs.kommons_junit5)
+
+    // JSON
+    implementation(Libs.kommons_json)
+    implementation(Libs.jackson_module_kotlin)
+
+    // Coroutines
+    implementation(Libs.kommons_coroutines)
+    implementation(Libs.kotlinx_coroutines_core)
+    testImplementation(Libs.kotlinx_coroutines_test)
 }

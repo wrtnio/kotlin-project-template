@@ -17,6 +17,7 @@ dependencies {
 
     // Coroutines
     implementation(Libs.kommons_coroutines)
+    implementation(Libs.kotlinx_coroutines_core)
     testImplementation(Libs.kotlinx_coroutines_test)
 
     // Redis
@@ -41,6 +42,5 @@ dependencies {
 
     // Testcontainers
     testImplementation(Libs.kommons_testcontainers)
-    testImplementation(Libs.testcontainers)
     testImplementation(Libs.testcontainers_kafka)
 }
