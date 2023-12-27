@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin
-
 plugins {
     base
     `maven-publish`
@@ -59,7 +57,10 @@ allprojects {
 subprojects {
     apply {
         plugin<JavaLibraryPlugin>()
-        plugin<KotlinPlatformJvmPlugin>()
+
+        // Kotlin 1.9.20 부터는 pluginId 를 지정해줘야 합니다.
+        plugin("org.jetbrains.kotlin.jvm")
+        // plugin<KotlinPlatformJvmPlugin>()
 
         plugin("jacoco")
         plugin("maven-publish")

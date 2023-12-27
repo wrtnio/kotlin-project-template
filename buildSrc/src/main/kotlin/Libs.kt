@@ -2,7 +2,7 @@ object Versions {
 
     const val kommons = "1.0.2"
 
-    const val kotlin = "1.9.10"
+    const val kotlin = "1.9.21"
     const val kotlinx_coroutines = "1.7.3"
     const val kotlinx_serialization = "1.6.0"
 
@@ -117,7 +117,7 @@ object Versions {
     const val mockito = "3.12.4"
     const val awaitility = "4.2.0"
     const val jmh = "1.37"
-    const val testcontainers = "1.19.0"
+    const val testcontainers = "1.19.3"
     const val jna = "5.13.0"
     const val archunit = "0.21.0"
 

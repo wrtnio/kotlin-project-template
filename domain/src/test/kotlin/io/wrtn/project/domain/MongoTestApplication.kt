@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
+import org.springframework.test.context.ActiveProfiles
 
+@ActiveProfiles("test")
 @SpringBootApplication
 @EnableMongoRepositories
 class MongoTestApplication {
@@ -25,6 +27,12 @@ class MongoTestApplication {
     fun mongoReactiveClient(): com.mongodb.reactivestreams.client.MongoClient {
         return com.mongodb.reactivestreams.client.MongoClients.create(mongodb.connectionString)
     }
+
+    /**
+     * MongoDB 관련 EmitValue 를 Log 에 쓰는 Listener 입니다.
+     */
+//    @Bean
+//    fun mongoEventListener() = LoggingEventListener()
 
 }
 

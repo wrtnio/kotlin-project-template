@@ -13,6 +13,7 @@ dependencies {
     // Modules
     implementation(project(":core"))
     implementation(project(":messages"))
+    implementation(project(":infrastructure"))
 
     implementation(Libs.kommons_core)
     testImplementation(Libs.kommons_junit5)
@@ -39,6 +40,7 @@ dependencies {
 
     // Testcontainers
     testImplementation(Libs.kommons_testcontainers)
+    testImplementation(Libs.testcontainers)
     testImplementation(Libs.testcontainers_mongodb)
 
     // Spring Boot 

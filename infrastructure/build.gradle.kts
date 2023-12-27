@@ -28,10 +28,10 @@ dependencies {
     testImplementation(Libs.kotlinx_coroutines_test)
 
     // Redis
-    implementation(Libs.kommons_redis)
-    implementation(Libs.lettuce_core)
-    implementation(Libs.redisson)
-    implementation(Libs.springBootStarter("data-redis"))
+    compileOnly(Libs.kommons_redis)
+    compileOnly(Libs.lettuce_core)
+    compileOnly(Libs.redisson)
+    compileOnly(Libs.springBootStarter("data-redis"))
 
     // Kafka
     compileOnly(Libs.kommons_kafka)
