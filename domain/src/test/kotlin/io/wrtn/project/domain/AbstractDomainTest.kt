@@ -15,6 +15,11 @@ abstract class AbstractDomainTest {
         val faker = Fakers.faker
 
         @JvmStatic
+        fun newUsers(size: Int): List<User> {
+            return List(size) { newUser() }
+        }
+
+        @JvmStatic
         fun newUser(userState: UserState = UserState.ACTIVE): User {
             return User(
                 nickname = faker.name().username(),

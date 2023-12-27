@@ -12,7 +12,7 @@ interface UserCoroutineRepository: CoroutineCrudRepository<User, String> {
 
     suspend fun findByEmailAndUserState(email: String, userState: UserState = UserState.ACTIVE): User?
 
-    fun findByNickname(nickname: String): Flow<User>
+    suspend fun findByNickname(nickname: String): User?
 
     fun findByCreatedAtAfter(createdAt: Instant = Instant.now()): Flow<User>
 }

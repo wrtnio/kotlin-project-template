@@ -1,3 +1,9 @@
+plugins {
+    kotlin("plugin.spring")
+    kotlin("kapt")
+    id(Plugins.spring_boot)
+}
+
 configurations {
     testImplementation.get().extendsFrom(compileOnly.get(), runtimeOnly.get())
 }
@@ -18,12 +24,14 @@ dependencies {
     // Coroutines
     implementation(Libs.kommons_coroutines)
     implementation(Libs.kotlinx_coroutines_core)
+    implementation(Libs.kotlinx_coroutines_reactor)
     testImplementation(Libs.kotlinx_coroutines_test)
 
     // Redis
-    compileOnly(Libs.kommons_redis)
-    compileOnly(Libs.lettuce_core)
-    compileOnly(Libs.redisson)
+    implementation(Libs.kommons_redis)
+    implementation(Libs.lettuce_core)
+    implementation(Libs.redisson)
+    implementation(Libs.springBootStarter("data-redis"))
 
     // Kafka
     compileOnly(Libs.kommons_kafka)
@@ -38,7 +46,7 @@ dependencies {
 
     // Serialization
     compileOnly(Libs.kryo)
-    compileOnly(Libs.fury)
+    implementation(Libs.fury)
 
     // Testcontainers
     testImplementation(Libs.kommons_testcontainers)

@@ -13,7 +13,7 @@
     </appender>
 
     <logger name="io.wrtn.project" level="DEBUG"/>
-    <logger name="io.wrtn.kommons" level="DEBUG"/>
+    <logger name="org.springframework.data.mongodb" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="Console"/>
