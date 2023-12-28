@@ -25,7 +25,7 @@ class MongoDslExamples(
     }
 
     @Test
-    fun `simple type-safe query`() {
+    fun `간단한 type-safe 쿼리 실행`() {
         val user1 = operations.insert<User>(newUser())
         val user2 = operations.insert<User>(newUser())
 

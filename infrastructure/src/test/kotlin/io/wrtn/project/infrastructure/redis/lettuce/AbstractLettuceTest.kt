@@ -3,7 +3,6 @@ package io.wrtn.project.infrastructure.redis.lettuce
 import io.lettuce.core.RedisClient
 import io.lettuce.core.api.async.RedisAsyncCommands
 import io.lettuce.core.api.sync.RedisCommands
-import io.wrtn.kommons.support.closeSafe
 import io.wrtn.project.infrastructure.redis.AbstractRedisTest
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
@@ -24,7 +23,7 @@ abstract class AbstractLettuceTest: AbstractRedisTest() {
 
     @AfterAll
     open fun afterAll() {
-        client.closeSafe()
+        // Nothing to do
     }
 
 }
