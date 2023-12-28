@@ -11,7 +11,7 @@ import org.redisson.api.RedissonClient
 abstract class AbstractRedisTest: AbstractInfraTest() {
 
     companion object: KLogging() {
-        private val redisServer = RedisServer.Launcher.redis
+        private val redisServer: RedisServer by lazy { RedisServer.Launcher.redis }
 
         @JvmStatic
         val lettuceBinaryCodec by lazy {

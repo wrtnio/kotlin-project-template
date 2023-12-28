@@ -16,5 +16,10 @@ abstract class AbstractInfraTest {
         @JvmStatic
         protected fun randomString(length: Int = 512): String =
             Fakers.fixedString(length)
+
+        @JvmStatic
+        protected fun randomStrings(size: Int = 10, length: Int = 512): List<String> =
+            List(size) { randomString(length) }
+
     }
 }
