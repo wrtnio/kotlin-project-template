@@ -12,7 +12,13 @@
     </appender>
 
     <logger name="io.wrtn.project" level="DEBUG"/>
-    <logger name="org.springframework.data.mongodb" level="DEBUG"/>
+
+    <!--<logger name="io.lettuce.core" level="DEBUG"/>-->
+    <!--<logger name="org.redisson" level="DEBUG"/>-->
+    <logger name="org.springframework.data.redis" level="DEBUG"/>
+
+    <logger name="org.apache.kafka" level="DEBUG"/>
+    <logger name="org.springframework.kafka" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="Console"/>
