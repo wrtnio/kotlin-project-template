@@ -24,8 +24,8 @@ object Versions {
     const val problem = "0.29.1"
 
     const val bucket4j = "8.3.0"
-    const val resilience4j = "2.1.0"
-    const val netty = "4.1.97.Final"
+    const val resilience4j = "2.2.0"
+    const val netty = "4.1.101.Final"
 
     const val aws = "1.12.546"    // https://mvnrepository.com/artifact/com.amazonaws
     const val aws2 = "2.20.143"   // https://mvnrepository.com/artifact/software.amazon.awssdk/aws-sdk-java
