@@ -50,6 +50,12 @@ dependencies {
         exclude(module = "mockito-core")
     }
 
+    // MongoDB
+    implementation(Libs.springBootStarter("data-mongodb"))
+    implementation(Libs.springBootStarter("data-mongodb-reactive"))
+    implementation(Libs.mongodb_driver_sync)
+    implementation(Libs.mongodb_driver_reactivestreams)
+
     // Kommons Modules
     implementation(Libs.kommons_spring_support)
     testImplementation(Libs.kommons_junit5)
@@ -91,7 +97,12 @@ dependencies {
     implementation(Libs.micrometer_observation)
     testImplementation(Libs.micrometer_observation_test)
 
-
     // SpringDoc - OpenAPI 3.0
     implementation(Libs.springdoc_openapi_starter_webflux_ui)
+
+    // Testcontainers
+    testImplementation(Libs.kommons_testcontainers)
+    testImplementation(Libs.testcontainers)
+    testImplementation(Libs.testcontainers_mongodb)
+    testImplementation(Libs.testcontainers_kafka)
 }
