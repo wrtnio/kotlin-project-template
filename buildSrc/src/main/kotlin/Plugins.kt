@@ -8,7 +8,7 @@ object Plugins {
         const val protobuf = "0.8.19"
         const val avro = "1.7.0"
 
-        const val jacoco = "0.8.8"
+        const val jacoco = "0.8.9"
         const val jarTest = "1.0.1"
         const val testLogger = "3.2.0"
         const val shadow = "7.1.2"

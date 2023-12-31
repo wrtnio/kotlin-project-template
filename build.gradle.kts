@@ -73,11 +73,11 @@ subprojects {
 
     java {
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(17))
+            languageVersion.set(JavaLanguageVersion.of(21))
         }
     }
 
-    val javaVersion = JavaVersion.VERSION_17.toString()
+    val javaVersion = JavaVersion.VERSION_21.toString()
     val kotlinVersion = "1.9"
 
     tasks {
