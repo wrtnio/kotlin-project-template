@@ -1,8 +1,8 @@
 object Versions {
 
-    const val kommons = "1.0.2"
+    const val kommons = "1.0.3"
 
-    const val kotlin = "1.9.21"
+    const val kotlin = "1.9.22"
     const val kotlinx_coroutines = "1.7.3"
     const val kotlinx_serialization = "1.6.0"
 
