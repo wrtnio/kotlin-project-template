@@ -1,0 +1,15 @@
+##################
+# BUILD FOR LOCAL DEVELOPMENT
+##################
+FROM --platform=linux/arm64 mcr.microsoft.com/openjdk/jdk:21-mariner AS builder
+COPY . .
+WORKDIR /
+RUN chmod +x ./gradlew
+RUN ./gradlew clean build -x test
+
+FROM --platform=linux/arm64 mcr.microsoft.com/openjdk/jdk:21-mariner
+
+EXPOSE 8080
+
+COPY --from=builder /app/build/libs/app-0.0.1.jar app.jar
+ENTRYPOINT ["java", "-javaagent:dd-java-agent.jar", "-Ddd.profiling.enabled=true", "-XX:FlightRecorderOptions=stackdepth=256", "-Ddd.logs.injection=true", "-Ddd.service=cds", "-Ddd.env=prod", "-jar", "-Duser.timezone=Asia/Seoul", "app.jar"]

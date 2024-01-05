@@ -1,0 +1,16 @@
+##################
+# BUILD FOR LOCAL DEVELOPMENT
+##################
+FROM --platform=linux/arm64 openjdk:21-ea-17-jdk-slim as builder
+COPY . .
+WORKDIR /
+RUN chmod +x ./gradlew
+RUN ./gradlew clean build -x test
+
+FROM --platform=linux/arm64 openjdk:21-ea-17-jdk-slim
+
+EXPOSE 8080
+
+COPY --from=builder /app/build/libs/app-0.0.1.jar app.jar
+COPY --from=builder dd-java-agent.jar dd-java-agent.jar
+ENTRYPOINT ["java", "-javaagent:dd-java-agent.jar", "-Ddd.profiling.enabled=true", "-XX:FlightRecorderOptions=stackdepth=256", "-Ddd.logs.injection=true", "-Ddd.service=cds", "-Ddd.env=dev", "-jar", "-Duser.timezone=Asia/Seoul", "app.jar"]
