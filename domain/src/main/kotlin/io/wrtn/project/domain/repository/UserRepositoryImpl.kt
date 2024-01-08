@@ -5,9 +5,7 @@ import org.springframework.data.mongodb.core.MongoOperations
 import org.springframework.data.mongodb.core.find
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
-import org.springframework.stereotype.Repository
 
-@Repository
 class UserRepositoryImpl(private val operations: MongoOperations): UserRepositoryCustom {
 
     override fun findByNicknameLike(regex: String): List<User> {

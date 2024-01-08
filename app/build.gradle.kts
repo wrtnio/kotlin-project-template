@@ -34,6 +34,7 @@ dependencies {
     implementation(project(":infrastructure"))
     implementation(project(":messages"))
 
+    // Spring Boot
     implementation(Libs.springBoot("autoconfigure"))
     kapt(Libs.springBoot("autoconfigure-processor"))
     kapt(Libs.springBoot("configuration-processor"))
@@ -100,9 +101,9 @@ dependencies {
     // SpringDoc - OpenAPI 3.0
     implementation(Libs.springdoc_openapi_starter_webflux_ui)
 
-    // Testcontainers
-    testImplementation(Libs.kommons_testcontainers)
-    testImplementation(Libs.testcontainers)
-    testImplementation(Libs.testcontainers_mongodb)
-    testImplementation(Libs.testcontainers_kafka)
+    // Testcontainers (예제를 실행시키기 위해 testcontainers 를 사용합니다)
+    implementation(Libs.kommons_testcontainers)
+    implementation(Libs.testcontainers)
+    implementation(Libs.testcontainers_mongodb)
+    implementation(Libs.testcontainers_kafka)
 }

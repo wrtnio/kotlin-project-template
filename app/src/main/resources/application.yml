@@ -1,0 +1,113 @@
+# Spring 기본 설정
+spring:
+    application:
+        name: Wrtn Project Template
+
+    profiles:
+        active: "dev"
+        default: "dev"
+
+    info:
+        build:
+            encoding: UTF-8
+    codec:
+        max-in-memory-size: 100MB
+    jackson:
+        serialization:
+            indent-output: true
+
+# Build Info
+info:
+    name: ${spring.application.name}
+    description: Wrtn Project Template
+    environment: ${spring.profiles.active}
+    version: 0.2.1
+
+# Server
+server:
+    compression:
+        enabled: true
+        min-response-size: 1KB
+
+app:
+    redirect:
+        root: /swagger-ui.html
+
+# Management (Actuator)
+management:
+    endpoints:
+        web.exposure.include: '*'
+
+    endpoint:
+        health:
+            show-components: always
+            show-details: always
+        metrics:
+            enabled: true
+        prometheus:
+            enabled: true
+    metrics:
+        tags:
+            application: ${spring.application.name}
+            profile: ${spring.profiles.active}
+
+    health:
+        diskspace:
+            enabled: false
+
+# swagger-ui custom path
+springdoc:
+    swagger-ui:
+        path: /swagger-ui.html
+
+
+resilience4j:
+    circuitbreaker:
+        configs:
+            default:
+                registerHealthIndicator: true
+                slidingWindowSize: 10
+                permittedNumberOfCallsInHalfOpenState: 3
+                automaticTransitionFromOpenToHalfOpenEnabled: true
+                waitDurationInOpenState: 5s
+                failureRateThreshold: 50
+                eventConsumerBufferSize: 10
+
+        instances:
+            alimtalk:
+                minimumNumberOfCalls: 10
+                waitDurationInOpenState: 3s
+                failureRateThreshold: 10
+
+    retry:
+        configs:
+            default:
+                max-attempts: 3
+                waitDuration: 10
+        instances:
+            alimtalk:
+                baseConfig: default
+
+    ratelimiter:
+        configs:
+            default:
+                registerHealthIndicator: true
+                limitForPeriod: 50
+                limitRefreshPeriod: 100ms
+                timeoutDuration: 5s
+                eventConsumerBufferSize: 100
+
+        instances:
+            alimtalk:
+                baseConfig: default
+
+    timelimiter:
+        configs:
+            default:
+                cancelRunningFuture: false
+                timeoutDuration: 5s
+
+        instances:
+            alimtalk:
+                cancelRunningFuture: true
+                timeoutDuration: 10s

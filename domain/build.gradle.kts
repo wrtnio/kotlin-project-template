@@ -11,9 +11,9 @@ configurations {
 dependencies {
 
     // Modules
-    implementation(project(":core"))
-    implementation(project(":messages"))
-    implementation(project(":infrastructure"))
+    api(project(":core"))
+    api(project(":messages"))
+    api(project(":infrastructure"))
 
     implementation(Libs.kommons_core)
     testImplementation(Libs.kommons_junit5)

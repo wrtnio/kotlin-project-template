@@ -1,13 +1,18 @@
 package io.wrtn.project.domain.service
 
+import io.wrtn.kommons.support.uninitialized
 import io.wrtn.project.domain.model.User
 import io.wrtn.project.domain.repository.UserRepository
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class UserService(private val repository: UserRepository) {
+class UserService {
+
+    @Autowired
+    private val repository: UserRepository = uninitialized()
 
     fun findByIdOrNull(id: String): User? {
         return repository.findByIdOrNull(id)
