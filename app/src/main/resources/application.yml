@@ -17,22 +17,31 @@ spring:
             indent-output: true
 
     lifecycle:
-        timeout-per-shutdown-phase: 10s
+        timeout-per-shutdown-phase: 10s     # Gradeful Shutdown 시간
 
-# Build Info
+    data:
+        mongodb:
+            host: ${testcontainers.mongo.host}
+            port: ${testcontainers.mongo.port}
+            database: test
+            auto-index-creation: true
+
+    main:
+        allow-bean-definition-overriding: true      # Bean 재정의 허용
+
 info:
     name: ${spring.application.name}
     description: Wrtn Project Template
     environment: ${spring.profiles.active}
-    version: 0.2.1
+    version: 0.0.1
 
 # Server
 server:
     compression:
         enabled: true
-        min-response-size: 1KB
-    # WebServer Graceful shutdown (https://www.baeldung.com/spring-boot-web-server-shutdown)
-    shutdown: graceful
+        min-response-size: 10KB
+
+    shutdown: graceful  # WebServer Graceful shutdown (https://www.baeldung.com/spring-boot-web-server-shutdown)
 
 app:
     redirect:
@@ -51,14 +60,24 @@ management:
             enabled: true
         prometheus:
             enabled: true
+
     metrics:
         tags:
             application: ${spring.application.name}
             profile: ${spring.profiles.active}
 
+        distribution:
+            percentiles-histogram:
+                http.server.requests: true                  # HTTP 요청에 대한 히스토그램을 수집
+                resilience4j.circuitbreaker.calls: true     # CircuitBreaker 호출에 대한 히스토그램을 수집
+
     health:
         diskspace:
             enabled: false
+        circuitbreakers:
+            enabled: true
+        ratelimiters:
+            enabled: true
 
 # swagger-ui custom path
 springdoc:

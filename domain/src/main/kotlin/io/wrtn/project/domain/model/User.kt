@@ -1,11 +1,10 @@
 package io.wrtn.project.domain.model
 
 import org.springframework.data.annotation.Id
-import org.springframework.data.annotation.PersistenceCreator
 import java.io.Serializable
 import java.time.Instant
 
-data class User @PersistenceCreator constructor(
+data class User(
     val nickname: String,
     val email: String,
     val age: Int = 0,

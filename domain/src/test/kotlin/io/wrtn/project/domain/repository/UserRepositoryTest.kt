@@ -1,5 +1,6 @@
 package io.wrtn.project.domain.repository
 
+import io.wrtn.kommons.logging.debug
 import io.wrtn.project.domain.AbstractDomainTest
 import io.wrtn.project.domain.model.User
 import io.wrtn.project.domain.model.UserState
@@ -11,6 +12,7 @@ import org.amshove.kluent.shouldNotBeNull
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.PageRequest
 import org.springframework.data.mongodb.core.MongoOperations
 import org.springframework.data.mongodb.core.dropCollection
 import org.springframework.data.mongodb.core.find
@@ -103,5 +105,15 @@ class UserRepositoryTest(
         val loaded = operations.findAll<User>()
 
         loaded shouldBeEqualTo saved
+    }
+
+    @Test
+    fun `find users with pageable`() {
+        val saved = operations.insertAll(newUsers(10)).toList()
+
+        val pageable = PageRequest.of(0, 5)
+        val loadedPage = repository.findAll(pageable)
+        log.debug { "page=$loadedPage" }
+        loadedPage.size shouldBeEqualTo 5
     }
 }
