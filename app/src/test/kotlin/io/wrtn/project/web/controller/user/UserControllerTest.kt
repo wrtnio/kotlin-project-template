@@ -6,6 +6,7 @@ import io.wrtn.project.domain.model.User
 import io.wrtn.project.domain.model.UserState
 import io.wrtn.project.web.AbstractProjectApplicationTest
 import io.wrtn.project.web.controller.ApiPaths
+import io.wrtn.project.web.utils.RestResponsePage
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOf
@@ -110,7 +111,7 @@ class UserControllerTest(
             )
             .exchange()
             .expectStatus().isOk
-            .returnResult<Page<User>>().responseBody
+            .returnResult<RestResponsePage<User>>().responseBody
             .awaitSingle()
     }
 }
