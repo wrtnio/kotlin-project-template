@@ -24,6 +24,7 @@ class UserEventListener: ApplicationListener<UserEvent> {
     }
 
     private fun doHandleEvent(event: UserEvent) {
+        // 이렇게 받는 Event 를 Kafka 를 통해 외부로 보내던가, Persistence 에 저장하는 작업을 할 수 있습니다.
         log.debug { "Handle user event. $event" }
         Thread.sleep(100)
     }
