@@ -6,12 +6,14 @@ import org.springframework.boot.WebApplicationType
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 import org.springframework.test.context.ActiveProfiles
 
 @ActiveProfiles("test")
 @SpringBootApplication
 @EnableMongoRepositories
+@ComponentScan(basePackages = ["io.wrtn.project"])
 class MongoTestApplication {
 
     companion object: KLogging() {

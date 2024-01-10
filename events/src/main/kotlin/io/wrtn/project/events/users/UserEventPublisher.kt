@@ -23,4 +23,11 @@ class UserEventPublisher(private val publisher: ApplicationEventPublisher) {
         log.trace { "Publish user event. $userEvent" }
         publisher.publishEvent(userEvent)
     }
+
+    fun publishAll(userEvents: List<UserEvent>) {
+        log.trace { "Publish user events. $userEvents" }
+        userEvents.forEach { userEvent ->
+            publisher.publishEvent(userEvent)
+        }
+    }
 }

@@ -12,8 +12,9 @@ dependencies {
 
     // Modules
     api(project(":core"))
-    api(project(":messages"))
     api(project(":infrastructure"))
+    api(project(":events"))
+    api(project(":messages"))
 
     implementation(Libs.kommons_core)
     testImplementation(Libs.kommons_junit5)
